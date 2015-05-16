@@ -15,6 +15,8 @@
 
 import parseopt2
 import docopt
+import nuuid
+import strutils
 
 const doc = """
 shtl
@@ -34,6 +36,9 @@ proc main() =
   if args["run"]:
     echo("fly shuttle fly")
     echo("images: ", args["<image>"])
+
+proc genUID(): string =
+  return nuuid.generateUUID().toUpper()
 
 when isMainModule:
   main()
